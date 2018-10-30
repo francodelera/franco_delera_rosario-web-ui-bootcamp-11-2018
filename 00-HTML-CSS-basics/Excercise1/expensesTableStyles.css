@@ -1,0 +1,17 @@
+table, tr, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th {
+ background-color: black;
+ color: white;
+ text-align: left;
+ font-weight: bold;
+}
+
+th, td {
+padding: 10px;
+}
+
+
