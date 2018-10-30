@@ -43,7 +43,6 @@ background-color:lightgoldenrodyellow !important; /* forcing and avoiding to use
     position: relative;
     width: 100%;
     height: 80px;
-    top: 0; /* put the header on the top of the page */
 }
 
 .footer {
@@ -57,28 +56,26 @@ background-color:lightgoldenrodyellow !important; /* forcing and avoiding to use
 
 .content {
     font-size: 14px;
-    display: inline-block; /* we want the main items (excluding header and footer) to behave as blocks but inline, so we can put one next to the other*/
+    display: block; /* we want the main items (excluding header and footer) to behave as blocks but inline, so we can put one next to the other*/
     width: 60%; /* 60% + 20% (nav) + 20% (aside) = 100% total */
+    float: left; /* go to the left side of the page */
 }
 
 .navigation {
     font-size: 12px;
-    display: inline-block;
+    display: block;
     width: 20%;
     float: left; /* go to the left side of the page */
 }
 
 .sidebar {
     font-size: 10px;
-    display: inline-block;
+    display: block;
     width: 20%;
-    float: right; /* and you go to the right side */
+    float: left; /* and you go to the left side too */
 }
 
-/* Sorting classes by their attributes
-If the class attribute finishes with r (example header, footer), the background must be magenta.
-If the class attribute contains an a (example nav) but do NOT finish with r, the background must be blue.
-*/
+/* Sorting classes by their attributes */
 
 [class$="r"] {  /* If the class attribute finishes with r (example header, footer), the background must be magenta. */
     background-color: magenta;
