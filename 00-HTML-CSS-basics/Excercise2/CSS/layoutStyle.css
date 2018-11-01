@@ -40,7 +40,9 @@ float: left;
 z-index: 1;
 }
 
-.box .box-child p {
+/* Styling the span element inside the boxes */
+
+.box .box-child span {
     background-color: rgba(0,0,0,0);
     display: block;
     font-weight: bold;
@@ -48,28 +50,38 @@ z-index: 1;
     width: 239px;
     height: 321px;
     position: absolute;
-    transform: translateY(-321px);
+    transform: translateY(-321px); /* moving all the span elements upwards to match the images */
     margin-top: 0;
     text-align: center;
     float: left;
     z-index: 0;
     transition-property: font-size; /* added transition effect that uses font-size as its property */
-    transition-duration: 1s;
-    transition-delay: 0.5s;
+    transition-duration: 0.3s;
+    transition-delay: 0.2s;
   }
 
   .break {
-      clear: both; /* clearing the floats */
+      clear: both; /* clearing the floats, to allow next elements to behave like the normal flow of the document */
   }
 
 /* Effects */
 
-.box .box-child p:hover {
+.box .box-child span:hover {
     background-color: rgba(0,0,0,.4); /* added transparency to the boxes */
     cursor: pointer;
     color: white;
     text-shadow: 1px 1px 5px black;
-    font-size: 28px;
-    transition-delay: 0.2s;
-    
+    font-size: 25px;
+    transition-delay: 0.2s; 
+    display: flex; /* this was possible thanks to the <span> element rather than <p> element which made almost impossible to align items vertically */
+    align-items: center; /* aligning items vertically */
+    justify-content: center; /* aligning items horizontally */
   }
+
+  /* Media Queries */
+
+  @media screen and (max-width: 645px) {
+    h1  {
+        text-align: left;
+    }
+}
