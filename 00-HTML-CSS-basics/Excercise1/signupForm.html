@@ -10,18 +10,18 @@
     <!-- This page works the same on Google Chrome, Firefox, and Edge. However, the date input doesn't work on I.E.11-->
     <form id="signup" action="signupForm.html" method="POST"><br>
         <h1>Sign up</h1>
-        <label for="firstname">First Name </label><input type="text" name="firstname" required placeholder=" e.g. John"><br>
-        <label for="lastname">Last Name </label><input type="text" name="lastname" required placeholder=" e.g. Smith"><br>
-        <label for="email">E-mail </label><input type="email" name="email" required placeholder=" e.g. johnsmith@mail.com"><br>
-        <label for="birthday">Birthday </label><input type="date" name="birthday"><br>
-        <label for="sports">Select your favorite sport </label><select name="sports">
+        <label for="firstname">First Name </label><input type="text" id="fname" required placeholder=" e.g. John"><br>
+        <label for="lastname">Last Name </label><input type="text" id="lname" required placeholder=" e.g. Smith"><br>
+        <label for="email">E-mail </label><input type="email" id="mail" required placeholder=" e.g. johnsmith@mail.com"><br>
+        <label for="birthday">Birthday </label><input type="date" id="bday"><br>
+        <label for="sports">Select your favorite sport </label><select id="favsport">
             <option value="soccer">Soccer</option>
             <option value="basketball">Basketball</option>
             <option value="tennis">Tennis</option>
             <option value="other">Other</option>
         </select>
         <br><label for="textarea">Tell us about yourself</label>
-        <br><textarea rows="6" cols="35">My hobbies are...</textarea>
+        <br><textarea  id="txtAreaHobbies" rows="6" cols="35">My hobbies are...</textarea>
         <br><input type="submit" value="Submit">
         <input type="reset" value="Reset">
         <p>Click on the reset button to reset the form.</p>
