@@ -4,6 +4,7 @@ html {
 }
 
 body {
+    display: flex;
     background-color: #1e1e1e;
 }
 
@@ -27,29 +28,12 @@ article {
     box-shadow: 3px 3px 8px black;
 }
 
-p {
-    margin: 20px;
-}
-section {
-    width: 60%;
-    margin: auto;
+.container {
+    width: 30%;
     text-align: center;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    margin-bottom: 0px;
-    font-size: 10px;
-}
-
-
-.hidden-section { 
-    display: none; 
-    font-size: 40px;
-    border: 4px double greenyellow;
-    color: greenyellow;
-    box-shadow: 3px 3px 8px black;
+    flex-flow: column;
+    position: relative;
+    margin: 20px 40px;
 }
 
 .btn {
@@ -67,4 +51,9 @@ footer {
 
 .btn:hover {
     background-color: lightgreen;
+}
+
+#test {
+    margin: 20px 40px;
+    flex-flow: column;
 }
