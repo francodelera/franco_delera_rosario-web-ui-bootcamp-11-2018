@@ -12,8 +12,8 @@ function getRepos() {
             test.appendChild(ul); // append the created ul element as a child of the section element
             var li= document.createElement('li');
             ul.appendChild(li);
-            li.innerHTML= li.innerHTML + "User Name: "+ myObj.login + "<br> URL: "+ myObj.url + "<br> Repositories: " + myObj.repos_url;
-            //this fetch de image from the API and show it on its corresponding item
+            li.innerHTML= li.innerHTML + "User Name: "+ myObj.login + "<br> Name: " + myObj.name + "<br> Bio: " + myObj.bio + "<br> URL: " + myObj.html_url + "<br> Repositories: " + myObj.repos_url + "<br> Number of repositories: " + myObj.public_repos;
+            //this fetch de image from the API and shows it on its corresponding item
             var img = document.createElement("img");
             test.appendChild(img);
             img.src = myObj.avatar_url;
@@ -23,7 +23,7 @@ function getRepos() {
         p = document.createElement('p');
         document.body.appendChild(p);
         if (txt_input === "") {
-            p.innerHTML = p.innerHTML + "Error. Debe ingresar un numbre de usuario";
+            p.innerHTML = p.innerHTML + "Error: You must enter a username";
         } else {
         p.innerHTML = p.innerHTML + "Error: The user \"" + txt_input + "\" does not exist on database. Try again.";
     }

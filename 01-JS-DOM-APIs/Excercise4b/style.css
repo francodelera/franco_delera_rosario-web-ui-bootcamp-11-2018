@@ -67,6 +67,10 @@ img {
     margin: auto;
 }
 
+li {
+    max-width: 400px;
+}
+
 p {
 color: red;
 }
