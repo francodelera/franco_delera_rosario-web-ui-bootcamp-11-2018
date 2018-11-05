@@ -13,15 +13,11 @@ function myfunc( method, url, sync ) {
             if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
                 resolve(this.response); 
             }
-            else {
+            else if (xmlhttp.readyState === 4 && xmlhttp.status >= 399){
                 reject(error);
             }
             
         };
-        xmlhttp.onerror = function() {
-        reject(Error("Network Error"));
-        };
-        
         xmlhttp.send();
     });
     return promise;
