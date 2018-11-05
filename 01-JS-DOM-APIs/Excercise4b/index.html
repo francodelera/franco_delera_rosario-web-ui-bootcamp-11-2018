@@ -7,22 +7,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
-    <title>Excercise 4</title>
+    <title>Excercise 4b</title>
 </head>
 <body>
     
 
 <section class="container">
         <header>
-                <h1>Fetching Github Repositories</h1>
+                <h1>Search on Github</h1>
         </header>
         <article> 
-                    <h2>List of Javascript repositories</h2> 
+                    <h2>Search by user name</h2> 
                     <form id="search" action="#" method="GET"><br>
-                        <button type="button" class="btn" onclick="getRepos()">Get Repos</button>
+                        <label for="input-user" class="labelStyle">Enter user name below: </label><br><input type="text" id="user-name" placeholder=" e.g. JohnDoe">
+                        <button type="button" class="btn" onclick="getRepos()">Search</button>
                     </form>
         </article>
 </section>
-<script src="FetchingRepos.js"></script>
+<script src="gitHubSearch.js"></script>
 </body>
 </html>
