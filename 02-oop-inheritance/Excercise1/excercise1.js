@@ -47,6 +47,9 @@ class Movie {
              func.call(null, movieName); //we are looping over the functions that we registered in the "on()" method and call them with the data.
            });
          }
+        else {
+            console.log(`The event ${eventName} doesn't exist`);
+        }
       }
 
       off(eventName, toRemove){
@@ -59,7 +62,7 @@ class Movie {
         }
   }
 }
-  
+  /*
   //Movies
   let bfuture = new Movie("Back to the Future", "1985", "116 min");
   let lordrings = new Movie("Lord of the Rings: The fellowship of the Ring", "2001", "178 min");
@@ -78,24 +81,28 @@ class Movie {
   bfuture.pause();
   console.log("La pelicula: " + lordrings.name + " se filmó en: " + lordrings.year + " y tiene una duración de: " + lordrings.duration);
   console.log("La pelicula: " + interstellar.name + " se filmó en: " + interstellar.year + " y tiene una duración de: " + interstellar.duration);
-
+*/
   
   //Calling the EventEmitter
 
 
-  document.addEventListener("DOMContentLoaded", function(event) {
+window.onload = function() {
 
-  let input = document.querySelector('input[type="text"]');
-  let button = document.querySelector('button');
-  let h1 = document.querySelector('h1');
+let input = document.querySelector('input[type="text"]');
 
-  button.addEventListener('click', () => {
-  emitter.emit('event:playMovie', {name: input.value});
+let emitter = new EventEmitter();
+
+document.getElementById('addButton').addEventListener('click', () => {
+    emitter.on('playMovie', data => {
+        console.log(`Movie Added: ${data.movieName}`);
     });
 
-    let emitter = new EventEmitter();
-  emitter.on('event:playMovie', data => {
-    h1.innerHTML = `The movie you are playing is: ${data.name}`;
-  });
+document.getElementById('emitButton').addEventListener('click', () => {
+  emitter.emit('playMovie', {movieName: input.value});
+    });
 
+document.getElementById('removeButton').addEventListener('click', () => {
+        emitter.off('playMovie', {movieName: input.value});
+        });
   });
+  };
