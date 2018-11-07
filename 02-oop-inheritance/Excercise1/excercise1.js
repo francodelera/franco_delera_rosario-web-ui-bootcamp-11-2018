@@ -33,30 +33,30 @@ class Movie {
       }
 
       on(eventName, callback){ //takes the event name, and the function to call when someone emits ( or screaming ) the event.
-        console.log(this.events[eventName]);
-        if (this.events[eventName]) {
+              if (this.events[eventName]) { //if the event exists
               this.events[eventName].push(callback);  //then we push to this array the function that we want to execute when someone emits the event.
           } else {
-              this.events[eventName] = [callback]; 
+              this.events[eventName] = [callback]; //if it doesn't exist stores the function on the array events
           }
-          console.log(this.events[eventName]);
       }
       
-      emit(eventName, ...rest){
-        console.log(this.events[eventName]);
-          if(this.events[eventName]) {
-              this.events[eventName].forEach(cb => cb.apply(null, rest))
-          }
-          console.log(this.events[eventName]);
+      emit(eventName, movieName){
+        const event = this.events[eventName]; //The emit function takes the event name that we want to “scream” and the data that we want to send with this event
+        if( event ) { //If the event exists in our events map
+          event.forEach(func => {
+             func.call(null, movieName); //we are looping over the functions that we registered in the "on()" method and call them with the data.
+           });
+         }
       }
 
-      off(eventName, callback){
-     /*   if (this.events[eventName]) {
-            this.events[eventName].pop(callback);
-        } else {
-            this.events[eventName] = [callback];
+      off(eventName, toRemove){
+        if(!!events[eventName]) {
+            events[eventName].forEach((movieObj, index) => { //we are looping over the values that are on the array events, with its current value and index
+                if (movieObj.movieName === toRemove) { //if the value we had is the same as the one we are passing through (and want to remove)
+                    events[eventName].splice(index, 1); //then remove that event which is located in that index
+                }
+            })
         }
-      }*/
   }
 }
   
@@ -79,12 +79,23 @@ class Movie {
   console.log("La pelicula: " + lordrings.name + " se filmó en: " + lordrings.year + " y tiene una duración de: " + lordrings.duration);
   console.log("La pelicula: " + interstellar.name + " se filmó en: " + interstellar.year + " y tiene una duración de: " + interstellar.duration);
 
+  
   //Calling the EventEmitter
 
-  const ee = new EventEmitter();
 
-  ee.on('change', () => {
-      console.log('hello there!');
-  })
+  document.addEventListener("DOMContentLoaded", function(event) {
 
-  ee.emit('change');
+  let input = document.querySelector('input[type="text"]');
+  let button = document.querySelector('button');
+  let h1 = document.querySelector('h1');
+
+  button.addEventListener('click', () => {
+  emitter.emit('event:playMovie', {name: input.value});
+    });
+
+    let emitter = new EventEmitter();
+  emitter.on('event:playMovie', data => {
+    h1.innerHTML = `The movie you are playing is: ${data.name}`;
+  });
+
+  });
