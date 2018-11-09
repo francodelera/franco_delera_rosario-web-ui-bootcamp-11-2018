@@ -149,7 +149,7 @@ viewcast(terminator);
 
 
 let logger = new Logger();
-terminator.on("play", logger.log("play"));
+terminator.on("play", logger.log);
 terminator.play();
 terminator.pause();
 
