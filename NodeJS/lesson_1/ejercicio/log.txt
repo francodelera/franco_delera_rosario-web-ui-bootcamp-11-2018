@@ -1,0 +1,3 @@
+Logger v1.0 | Message: Test 1 | Date: 2018-11-16 14:47:54
+Logger v1.0 | Message: Everything seems to be ok | Date: 2018-11-16 14:48:18
+Logger v1.0 | Message: Hola | Date: 2018-11-16 15:21:27
