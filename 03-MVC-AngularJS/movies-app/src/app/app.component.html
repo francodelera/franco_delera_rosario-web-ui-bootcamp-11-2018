@@ -1,0 +1,44 @@
+<nav class="navbar navbar-light" style="background-color: #48CFAD;">
+  <a class="navbar-brand" href="/">Movie listing app</a>
+</nav>
+ 
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mt-4">
+        <ul class="list-group">
+          <li *ngFor="let movie of moviesArray"
+          class="list-group-item list-group-item-action"
+          (click)="openForEdit(movie)"
+          [class.active]="movie == selectedMovie">
+          <app-movie-summary [movieInformation]="movie"></app-movie-summary>
+          </li>
+        </ul>
+        <div class="card mt-4">
+          <div class="card-body">
+
+            <div class="card-title">
+              Insert a new movie:
+              <div class="form-group">
+                <input type="text" [(ngModel)]="selectedMovie.title" placeholder="Insert title" class="form-control" name="title" id="title">
+              </div>
+              <div class="form-group">
+                <input type="text" [(ngModel)]="selectedMovie.year" placeholder="Insert year of filming" class="form-control" name="year" id="year">
+              </div>
+              <div class="form-group">
+                <input type="text" [(ngModel)]="selectedMovie.duration" placeholder="Insert duration" class="form-control" name="duration" id="duration">
+              </div>
+              <button class="btn btn-info" type="submit" (click)="addOrEdit()">Submit</button>
+            <button *ngIf="selectedMovie.index !== 0" class="btn btn-danger" (click)="delete()">Delete</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mt-4">
+        <img width="300" alt="Movies Logo" src="https://www.freeiconspng.com/uploads/movie-icon-27.png">
+      </div>
+    </div>
+  </div>
+
+  
