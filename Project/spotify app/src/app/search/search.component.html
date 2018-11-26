@@ -1,0 +1,27 @@
+<div class="container mt-5">
+<h1>Search into Spotify database</h1>
+<p class="text"> On this page you can search for your favorites songs into the official Spotify database</p>
+
+<form>
+  <div class="form-group">
+    <input type="text" name="searchinput" [(ngModel)]="searchinput" (change)= "searchMusic()" class="form-control" placeholder="Search an artist and hit enter!">
+  </div>
+</form>
+
+</div>
+
+<div *ngIf="searchResult">
+<div class="card-group">
+    <div class="col-4" *ngFor="let result of searchResult">
+        <div class="card card-custom" routerLink="artist/{{result.id}}">
+          <img class="card-img-top" *ngIf="result.images.length > 0" src="{{result.images[0].url}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title" routerLink="artist/{{result.id}}">{{result.name}}</h5>
+            <div class="card-img-top img-not-found" *ngIf="result.images.length === 0">No image available</div>
+            <!-- <p class="card-text"><span class="badge badge-secondary">{{album.release_date.split('-')[0]}}</span></p>
+            <p class="card-text"><small class="text-muted">{{album.total_tracks}} tracks</small></p> -->
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>

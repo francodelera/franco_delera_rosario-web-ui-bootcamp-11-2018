@@ -1,0 +1,13 @@
+/* img.resize {
+    width: 140px;
+    height: auto;
+} */
+
+.card-custom {
+    cursor: pointer;
+    margin: 10px;
+}
+
+.card-custom:hover {
+    box-shadow: 1px 1px 10px gray;
+}

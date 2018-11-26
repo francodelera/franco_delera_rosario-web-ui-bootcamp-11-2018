@@ -1,0 +1,20 @@
+<div *ngIf="artist" class="card bg-dark text-white">
+            <img class="card-img artist-custom-img" *ngIf="artist.images.length > 0" src="{{artist.images[0].url}}" alt="Card image">
+            <div class="card-img-overlay">
+              <h1 class="card-title artist-custom-title">{{artist.name}}</h1>
+              <p class="card-text card-text-custom">{{artist.genres}}</p>
+            </div>
+          </div>
+
+    <div class="card-group">
+        <div class="col-4"  *ngFor="let album of albums">
+            <div class="card card-custom" routerLink="/album/{{album.id}}">
+              <img class="card-img-top" src="{{album.images[0].url}}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title" routerLink="/album/{{album.id}}">{{album.name}}</h5>
+                <p class="card-text"><span class="badge badge-secondary">{{album.release_date.split('-')[0]}}</span></p>
+                <p class="card-text"><small class="text-muted">{{album.total_tracks}} tracks</small></p>
+              </div>
+            </div>
+        </div>
+    <div>

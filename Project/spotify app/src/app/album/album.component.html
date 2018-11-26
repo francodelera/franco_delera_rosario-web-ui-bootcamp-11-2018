@@ -1,0 +1,27 @@
+
+<div class="card-group">
+<div class="card col-8" style="width: 18rem;">
+  <img class="card-img-top" src="{{singleAlbum.images[0].url}}" alt="Album image">
+  <div class="card-body">
+    <h5 class="card-title">{{singleAlbum.name}} <span class="badge badge-secondary">{{singleAlbum.release_date.split('-')[0]}}</span></h5>
+    <p class="card-text">{{singleAlbum.total_tracks}} Tracks</p>
+    
+      <div *ngFor="let artist of singleAlbum.artists">
+      <a href="{{singleAlbum.external_urls.spotify}}" target="_blank" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Open in Spotify </a></div>
+    </div>
+  </div>
+
+<div class="col-4">
+    <div class="card-body">
+    <h5 class="card-title text-center">Preview tracks</h5>
+  <ul class="list-group list-group-flush" *ngFor="let track of singleAlbum.tracks.items">
+    <li class="list-group-item list-group-item-action">{{track.track_number}} • {{track.name}}
+    <audio controls>
+      <source src="{{track.preview_url}}" type="audio/mpeg">
+      <source src="{{track.preview_url}}" type="audio/ogg">
+      Your browser does not support the audio element.
+    </audio>  
+  </li>
+  </ul>
+  </div>
+</div>
